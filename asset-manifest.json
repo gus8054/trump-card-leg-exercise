@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/trump-card-leg-exercise/static/css/main.1d9dff93.css",
+    "main.js": "/trump-card-leg-exercise/static/js/main.67c08045.js",
+    "static/js/787.f7ee033f.chunk.js": "/trump-card-leg-exercise/static/js/787.f7ee033f.chunk.js",
+    "index.html": "/trump-card-leg-exercise/index.html",
+    "main.1d9dff93.css.map": "/trump-card-leg-exercise/static/css/main.1d9dff93.css.map",
+    "main.67c08045.js.map": "/trump-card-leg-exercise/static/js/main.67c08045.js.map",
+    "787.f7ee033f.chunk.js.map": "/trump-card-leg-exercise/static/js/787.f7ee033f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1d9dff93.css",
+    "static/js/main.67c08045.js"
+  ]
+}

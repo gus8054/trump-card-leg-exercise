@@ -51,6 +51,43 @@
         const card = randomCard();
         const cardImage = document.querySelector("img");
         cardImage.src = `./img/${card}.png`;
+        let detail = "";
+        if (card.endsWith("clubs")) {
+          detail += "스쿼트 ";
+        } else if (card.endsWith("hearts")) {
+          detail += "스쿼트 ";
+        } else if (card.endsWith("joker")) {
+          detail += "스쿼트 ";
+        } else if (card.endsWith("spades")) {
+          detail += "왼발 런지 ";
+        } else if (card.endsWith("diamonds")) {
+          detail += "오른발 런지 ";
+        }
+        if (card.startsWith("2")) {
+          detail += "2회";
+        } else if (card.startsWith("3")) {
+          detail += "3회";
+        } else if (card.startsWith("4")) {
+          detail += "4회";
+        } else if (card.startsWith("5")) {
+          detail += "5회";
+        } else if (card.startsWith("6")) {
+          detail += "6회";
+        } else if (card.startsWith("7")) {
+          detail += "7회";
+        } else if (card.startsWith("8")) {
+          detail += "8회";
+        } else if (card.startsWith("9")) {
+          detail += "9회";
+        } else if (card.startsWith("10")) {
+          detail += "10회";
+        } else if (card.startsWith("ace")) {
+          detail += "11회";
+        } else {
+          detail += "10회";
+        }
+        const kind = document.querySelector("h1");
+        kind.innerText = detail;
         const progress = document.querySelector("p span");
         count++;
         progress.innerText = Math.floor((count / deck_length) * 100);
@@ -98,6 +135,7 @@
       <div>
         <img src="./img/finish.png" alt="트럼프 카드" />
       </div>
+      <h1>종목</h1>
       <p>진행률 : <span>0</span>%</p>
       <button onclick="buttonHandler()">다음 카드</button>
     </section>

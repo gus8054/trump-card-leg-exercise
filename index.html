@@ -1,1 +1,105 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"/><link rel="icon" href="/trump-card-leg-exercise/favicon.ico"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#000000"/><meta name="description" content="Web site created using create-react-app"/><link rel="apple-touch-icon" href="/trump-card-leg-exercise/logo192.png"/><link rel="manifest" href="/trump-card-leg-exercise/manifest.json"/><title>React App</title><script defer="defer" src="/trump-card-leg-exercise/static/js/main.67c08045.js"></script><link href="/trump-card-leg-exercise/static/css/main.1d9dff93.css" rel="stylesheet"></head><body><noscript>You need to enable JavaScript to run this app.</noscript><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      const clubs = [
+        ...new Array(9).fill(0).map((_, i) => `${i + 2}_of_clubs`),
+        `ace_of_clubs`,
+        `jack_of_clubs`,
+        `queen_of_clubs`,
+        `king_of_clubs`,
+      ];
+      const hearts = [
+        ...new Array(9).fill(0).map((_, i) => `${i + 2}_of_hearts`),
+        `ace_of_hearts`,
+        `jack_of_hearts`,
+        `queen_of_hearts`,
+        `king_of_hearts`,
+      ];
+      const spades = [
+        ...new Array(9).fill(0).map((_, i) => `${i + 2}_of_spades`),
+        `ace_of_spades`,
+        `jack_of_spades`,
+        `queen_of_spades`,
+        `king_of_spades`,
+      ];
+      const diamonds = [
+        ...new Array(9).fill(0).map((_, i) => `${i + 2}_of_diamonds`),
+        `ace_of_diamonds`,
+        `jack_of_diamonds`,
+        `queen_of_diamonds`,
+        `king_of_diamonds`,
+      ];
+      const jokers = ["red_joker", "black_joker"];
+      const deck = [...clubs, ...hearts, ...spades, ...diamonds, ...jokers];
+      const deck_length = deck.length;
+      let count = 0;
+      console.log(clubs);
+      const randomCard = () => {
+        const randomIndex = Math.floor(Math.random() * deck.length);
+        const cardName = deck[randomIndex];
+        deck.splice(randomIndex, 1);
+        return cardName;
+      };
+      const buttonHandler = () => {
+        if (count >= deck_length) {
+          alert("모든 카드를 다 사용했습니다.");
+          return;
+        }
+        const card = randomCard();
+        const cardImage = document.querySelector("img");
+        cardImage.src = `./img/${card}.png`;
+        const progress = document.querySelector("p span");
+        count++;
+        progress.innerText = Math.floor((count / deck_length) * 100);
+      };
+    </script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+      section {
+        text-align: center;
+      }
+      section div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30vh;
+      }
+      img {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 100%;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+    <title>트럼프 카드를 이용한 다리운동</title>
+  </head>
+  <body>
+    <section>
+      <div>
+        <img src="./img/finish.png" alt="트럼프 카드" />
+      </div>
+      <p>진행률 : <span>0</span>%</p>
+      <button onclick="buttonHandler()">다음 카드</button>
+    </section>
+  </body>
+</html>
